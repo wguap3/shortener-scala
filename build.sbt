@@ -7,17 +7,16 @@ lazy val root = (project in file("."))
   .settings(
     name := "shortener-scala",
     libraryDependencies ++= Seq(
+      // ZIO
       "dev.zio" %% "zio"         % "2.1.1",
-      "dev.zio" %% "zio-streams" % "2.1.1",
 
-      "org.http4s" %% "http4s-ember-server" % "0.23.26",
-      "org.http4s" %% "http4s-dsl"          % "0.23.26",
-      "org.http4s" %% "http4s-circe"        % "0.23.26",
+      // zio-http - HTTP сервер, проще чем http4s
+      "dev.zio" %% "zio-http"    % "3.0.0-RC4",
 
-      "io.circe" %% "circe-generic" % "0.14.7",
+      // zio-json - JSON сериализация
+      "dev.zio" %% "zio-json"    % "0.6.2",
 
-      "dev.zio" %% "zio-interop-cats" % "23.1.0.2",
-
+      // PostgreSQL (пока не используем но пусть будет)
       "org.postgresql" % "postgresql" % "42.7.3",
     )
   )
