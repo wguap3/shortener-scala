@@ -22,6 +22,7 @@ class InMemoryUrlRepository extends UrlRepository{
   override def incrementClick(shortCode: String): Task[Unit] =
     ZIO.attempt{
       storage.computeIfPresent(shortCode,(_,url) => url.copy(clickCount = url.clickCount + 1))
+      ()
     }
 }
 
